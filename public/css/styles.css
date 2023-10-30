@@ -1,6 +1,178 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+:root {
+  --myblue: #0077b6;
+}
+
+body {
+  font-size: 8vw;
+}
+
+header {
+  height: 2em;
+}
+
+.siteName {
+  position: absolute;
+  top: 4vw;
+  font-size: 1em;
+}
+
+#tools {
+  position: absolute;
+  top: 3vw;
+  right: 3vw;
+  font-size: 0.4em;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: black;
+}
+
+ul.noBullets {
+  font-size: 0.6em;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav li {
+  display: block;
+  color: white;
+  padding: 3vw;
+  text-decoration: none;
+  float: left;
+}
+
+h1 {
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 0.5em;
+}
+
+footer {
+  font-size: 0.5em;
+}
+
+.subsection h1 {
+  margin: 0 0.5em;
+}
+
+.subsection h2 {
+  margin-bottom: 0;
+}
+
+#welcome {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  border: 0;
+  padding: 0;
+}
+#welcome h1{
+  grid-row: 1/2;
+  grid-column: 1/4;
+}
+
+#car-image{
+  display: flex;
+  grid-row: 2/5;
+  grid-column: 1/4;
+  align-items: center;
+  justify-content: center;
+}
+
+#car-image img{
+  width: 80vw;
+  height: auto;
+}
+
+#car-details {
+  display: block;
+  color: var(--myblue);
+  padding-left: 3vw;
+  grid-row: 3/4;
+  grid-column: 1/2;
+  background: rgba(256,256,256, 0.75);
+}
+
+#own-img {
+  width: 75%;
+  height: auto;
+  border-radius: 1vw;
+}
+
+#car-details h2 {
+  margin-top: 0;
+}
+
+#car-details p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.5em;
+}
+
+#reviews {
+  padding-left: 5vw;
+  margin: 0;
+  font-size: 0.5em;
+}
+
+#reviews li {
+  padding: 3vw;
+}
+
+#upgrades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto min-content;
+  justify-items: center;
+}
+
+.upgrade {
+  width: 100%;
+  height: auto;
+  padding: 2vw;
+}
+
+.upgrade-img {
+  display: flex;
+  background-color: var(--myblue);
+  border: darkblue;
+  border-style: solid;
+  border-width: 2px;
+  margin: 2vw;
+  justify-content: center;
+}
+
+.upgrade-img img {
+  height: 20vw;
+  width: auto;
+  margin: 2vw;
+}
+
+.upgrade a {
+  display: block;
+  text-align: center;
+  font-size: 0.6em;
+}
+
+@media only screen and (min-width: 400px) {
+
+  html { 
+    background: url("/images/site/small_check.png") no-repeat center center fixed; 
+    background-size: cover;
+  }
+
+  body {
+    background-color: whitesmoke;
+    border-radius: 3vw;
+    border: 3vw;
+    border-color: lightblue;
+  }
 }
