@@ -1,4 +1,6 @@
-DROP TYPE IF EXISTS public.account_type;
+-- cse340 database
+-- cse340bh4
+
 
 CREATE TYPE public.account_type AS ENUM
     ('Client', 'Employee', 'Admin');
