@@ -49,6 +49,7 @@ nav li {
 h1 {
   font-size: 1em;
   margin-bottom: 0;
+  text-align: center;
 }
 
 h2 {
@@ -162,6 +163,45 @@ footer {
   font-size: 0.6em;
 }
 
+#inv-display {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.5em;
+}
+
+#inv-display li {
+  display: flex;
+  flex-flow: column;
+  width: 250px;
+  border: 1px solid var(--myblue);
+  border-radius: 1em;
+  margin: 0.5em;
+}
+
+#inv-display hr {
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+
+#inv-display h2 {
+  margin: 0;
+  font-size: 1em;
+}
+
+#inv-display img {
+  border-radius: 0.9em;
+  height: 105px;
+  margin-top: 5px;
+}
+
+.namePrice {
+  position: relative;
+  height: 100%;
+}
+
+
 @media only screen and (min-width: 400px) {
 
   html { 
@@ -175,4 +215,28 @@ footer {
     border: 3vw;
     border-color: lightblue;
   }
+}
+
+@media only screen and (min-width: 570px) {
+  #inv-display {
+    font-size: min(0.5em, 23px);
+  }
+
+  #inv-display li {
+    height: 220px;
+  }
+
+  #inv-display h2 {
+    margin: 0;
+  }
+
+  #inv-display span {
+    position: absolute;
+    bottom: 0;
+    left: 80px;
+  }
+  footer {
+    font-size: 20px;
+  }
+
 }
