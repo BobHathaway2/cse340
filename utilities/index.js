@@ -58,6 +58,15 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* **************************************
+* Build the detail view HTML
+* ************************************ */
+Util.buildDetailGrid = async function(data){
+  let grid = data;
+  console.log(grid, data);
+  return grid
+}
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other functions in this for 
