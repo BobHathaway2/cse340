@@ -61,10 +61,23 @@ Util.buildClassificationGrid = async function(data){
 /* **************************************
 * Build the detail view HTML
 * ************************************ */
-Util.buildDetailGrid = async function(data){
-  let grid = data;
-  console.log(grid, data);
-  return grid
+Util.buildDetailPage = async function(data){
+  let details
+  if(data.length > 0){
+    details = '<p>' + data[0].inv_make + '</p>'
+    details += '<p>' + data[0].inv_model + '</p>'
+    details += '<p>' + data[0].inv_image + '</p>'
+    details += '<p>' + data[0].inv_year + '</p>'
+    details += '<p>' + data[0].inv_description + '</p>'
+    details += '<p>' + data[0].inv_price + '</p>'
+    details += '<p>' + data[0].inv_miles + '</p>'
+    details += '<p>' + data[0].inv_color + '</p>'
+ 
+  } else { 
+    details += '<p class="notice">Sorry, we must have sold that one. I can\'t find it anywere!</p>'
+  }
+  return details
+
 }
 
 /* ****************************************
