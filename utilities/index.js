@@ -29,7 +29,7 @@ Util.getNav = async function (req, res, next) {
 * Build the classification view HTML
 * ************************************ */
 Util.buildClassificationGrid = async function(data){
-  let grid
+  let grid = '';
   if(data.length > 0){
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
@@ -53,7 +53,7 @@ Util.buildClassificationGrid = async function(data){
     })
     grid += '</ul>'
   } else { 
-    grid += '<p class="notice">Oh no! Where did all the vehicles go? Maybe try another class of vehicles?</p>'
+    grid = '<p class="errorMsg">Oh no! We sold them all? Maybe try another class of vehicles?</p>'
   }
   return grid
 }
@@ -62,7 +62,7 @@ Util.buildClassificationGrid = async function(data){
 * Build the detail view HTML
 * ************************************ */
 Util.buildDetailPage = async function(data){
-  let details
+  let details;
   if(data.length > 0){
     details = '<section id=details>'
     details += '<div id="image-div"><img src="' + data[0].inv_image 
@@ -77,7 +77,7 @@ Util.buildDetailPage = async function(data){
     details += '</div>'
     details += '</section>'
   } else { 
-    details = '<p class="notice">Sorry, we must have sold that one. I can\'t find it anywere! Is there another you\'re interested in?</p>'
+    details = '<p class="errorMsg">Sorry, we must have sold that one. I can\'t find it anywere! Is there another you\'re interested in?</p>'
   }
   return details
 
