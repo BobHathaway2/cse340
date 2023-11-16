@@ -36,7 +36,7 @@ Util.buildClassificationGrid = async function(data){
       grid += '<li>'
       grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
       + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
-      + 'details"><img src="' + vehicle.inv_thumbnail 
+      + ' details"><img src="' + vehicle.inv_thumbnail 
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
       +' on CSE Motors" /></a>'
       grid += '<div class="namePrice">'
@@ -53,7 +53,7 @@ Util.buildClassificationGrid = async function(data){
     })
     grid += '</ul>'
   } else { 
-    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+    grid += '<p class="notice">Oh no! Where did all the vehicles go? Maybe try another class of vehicles?</p>'
   }
   return grid
 }
@@ -64,17 +64,20 @@ Util.buildClassificationGrid = async function(data){
 Util.buildDetailPage = async function(data){
   let details
   if(data.length > 0){
-    details = '<p>' + data[0].inv_make + '</p>'
-    details += '<p>' + data[0].inv_model + '</p>'
-    details += '<p>' + data[0].inv_image + '</p>'
-    details += '<p>' + data[0].inv_year + '</p>'
-    details += '<p>' + data[0].inv_description + '</p>'
-    details += '<p>' + data[0].inv_price + '</p>'
-    details += '<p>' + data[0].inv_miles + '</p>'
-    details += '<p>' + data[0].inv_color + '</p>'
- 
+    details = '<section id=details>'
+    details += '<div id="image-div"><img src="' + data[0].inv_image 
+      +'" alt="Image of '+ data[0].inv_make + ' ' + data[0].inv_model 
+      +' on CSE Motors" /></div>'
+    details += '<h2>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model + '</h2>'
+    details += '<article><h3>Description:</h3>' + data[0].inv_description + '</article>'
+    details += '<div id="specs">'
+    details += '<div id="color">Color: ' + data[0].inv_color + '</div>'
+    details += '<div id="mileage">Mileage: ' + Number(data[0].inv_miles).toLocaleString('en') + '</div>'
+    details += '<div id="price">Price: $' + Number(data[0].inv_price).toLocaleString('en') + '</div>'
+    details += '</div>'
+    details += '</section>'
   } else { 
-    details += '<p class="notice">Sorry, we must have sold that one. I can\'t find it anywere!</p>'
+    details = '<p class="notice">Sorry, we must have sold that one. I can\'t find it anywere! Is there another you\'re interested in?</p>'
   }
   return details
 

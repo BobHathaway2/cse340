@@ -20,7 +20,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
 }
 
 /* ***************************
- *  Build detail view
+ *  Build details view
  * ************************** */
 invCont.buildByInvId = async function (req, res, next) {
   const inv_id = req.params.invId
