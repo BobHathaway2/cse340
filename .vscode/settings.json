@@ -5,13 +5,13 @@
                 "ssl": true
             },
             "previewLimit": 50,
-            "server": "dpg-cl0ojdgp2gis738r63f0-a.oregon-postgres.render.com",
+            "server": "dpg-cl623kc72pts73fqm96g-a.oregon-postgres.render.com",
             "port": 5432,
             "driver": "PostgreSQL",
             "name": "render",
-            "database": "cse340bh",
-            "username": "cse340bh",
-            "password": "kZbChiEo6SLrtoFSOD1okZ8iFXQt8N3o"
+            "database": "cse340bh5",
+            "username": "cse340bh5",
+            "password": "G23GsYF4cVPKFB33wbZDRimmhNTUOHIp"
         }
     ]
 }
