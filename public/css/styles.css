@@ -248,6 +248,11 @@ article {
 #price {
   font-weight: bold;
 }
+
+#errorMsg {
+  font-size: 0.5em;
+  color: red;
+}
 /* ***************************************************** */
 /* Media transition at 400px to display on wider screens */
 /* ***************************************************** */
@@ -312,6 +317,7 @@ article {
   }
   footer {
     font-size: 20px;
+    padding-left: 1em;
   }
 
 /* ******************** */
