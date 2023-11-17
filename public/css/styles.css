@@ -20,7 +20,7 @@ header {
   position: absolute;
   top: 3vw;
   right: 3vw;
-  font-size: 0.4em;
+  font-size: max(0.4em, 14px);
 }
 
 nav {
@@ -31,7 +31,7 @@ nav {
 }
 
 ul {
-  font-size: 0.5em;
+  font-size: max(0.5em, 14px);
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -40,7 +40,7 @@ ul {
 
 nav li {
   display: block;
-  padding: 2.5vw;
+  padding: 1.8vw;
   text-decoration: none;
   float: left;
 }
@@ -240,11 +240,12 @@ article, #specs {
 }
 
 article {
-  font-size: 0.5em;
+  font-size: max(0.5em, 14px);
+  margin-bottom: 10px;
 }
 
 #specs {
-  font-size: 0.7em;
+  font-size: max(0.7em, 16px);
 }
 
 #price {
@@ -282,6 +283,7 @@ article {
   #tools{
     top: 6vw;
     right: 7vw;
+    font-size: min(1em, 20px);
   }
 
   nav {
