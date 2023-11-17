@@ -33,7 +33,7 @@ app.use("/inv", utilities.handleErrors(inventoryRoute))
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
-  next({status: 404, message: '<div id="errorMsg">Sorry, we appear to have lost that page.</div>'})
+  next({status: 404, message: '<div class="errorMsg">Sorry, we appear to have lost that page.</div>'})
 })
 
 /* ***********************
@@ -43,7 +43,7 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  if(err.status == 404){ message = err.message} else {message = '<div id="errorMsg">Oh no! There was a crash. Maybe try looking elsewhere?</p>'}
+  if(err.status == 404){ message = err.message} else {message = '<div class="errorMsg">It hurts when you click there. Please don\'t click there again.</p>'}
   res.render("errors/error", {
     title: err.status || 'Server Error',
     message,

@@ -65,6 +65,8 @@ h2 {
 
 footer {
   font-size: 0.5em;
+  display: flex;
+  justify-content: space-between;
 }
 
 .subsection h1 {
@@ -249,9 +251,10 @@ article {
   font-weight: bold;
 }
 
-#errorMsg {
+.errorMsg {
   font-size: 0.5em;
   color: red;
+  text-align: center;
 }
 /* ***************************************************** */
 /* Media transition at 400px to display on wider screens */
@@ -316,8 +319,8 @@ article {
     left: 80px;
   }
   footer {
-    font-size: 20px;
-    padding-left: 1em;
+    font-size: 16px;
+    margin: 0 15px;
   }
 
 /* ******************** */

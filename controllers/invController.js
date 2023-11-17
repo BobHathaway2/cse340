@@ -23,16 +23,24 @@ invCont.buildByClassificationId = async function (req, res, next) {
  *  Build details view
  * ************************** */
 invCont.buildByInvId = async function (req, res, next) {
-  const inv_id = req.params.invId
-  const data = await invModel.getInventoryByInvId(inv_id)
-  const details = await utilities.buildDetailPage(data)
-  let nav = await utilities.getNav()
-  const detailName = data[0].inv_make + ' ' + data[0].inv_model
-  res.render("./inventory/detail", {
-    title: detailName,
-    nav,
-    details,
-  })
+  try {
+    const inv_id = req.params.invId
+    if (inv_id == 'my500') {
+      throw new Error('My triggered HTTP 500');
+    }
+    const data = await invModel.getInventoryByInvId(inv_id)
+    const details = await utilities.buildDetailPage(data)
+    let nav = await utilities.getNav()
+    const detailName = data[0].inv_make + ' ' + data[0].inv_model
+    res.render("./inventory/detail", {
+      title: detailName,
+      nav,
+      details,
+    })
+  } catch (error) {
+    error.statusCode = 500
+    throw error
+  }
 }
 
 module.exports = invCont
