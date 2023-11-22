@@ -277,9 +277,25 @@ article {
   border-radius: 5px;
 }
 
+form * {
+  display: block;
+}
+
+.pswdBtn {
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 2px;
+  margin-top: 1em;
+  font-size: small;
+  width: 7em;
+  text-align: center;
+}
+
 #pw-verbiage {
   font-size: 0.5em;
 }
+
+
 
 /* ******************** */
 /* Error message styling */
