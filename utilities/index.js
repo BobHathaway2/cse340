@@ -27,7 +27,7 @@ Util.getNav = async function (req, res, next) {
 
 /* **************************************
 * Build the classification view HTML
-* ************************************ */
+* ************************************* */
 Util.buildClassificationGrid = async function(data){
   let grid = '';
   if(data.length > 0){
@@ -83,6 +83,9 @@ Util.buildDetailPage = async function(data){
 
 }
 
+/* **************************************
+* Build the login view HTML
+* ************************************ */
 Util.buildLoginPage = async function(){
   let login = '<div id="login-block1">'
     login += '<div id="login-block2">'
@@ -98,10 +101,41 @@ Util.buildLoginPage = async function(){
       login += '<button>Show Password</button>'
       login += '<button>Login</button>'
     login += '</div>'
-    login += '<p>No account? <a href="/account/signup">Sign-up!</p>'
+    login += '<p>No account? <a href="/account/registration">Sign-up!</p>'
     login += '</div>'
   return login
 }
+
+
+/* **************************************
+* Build the login view HTML
+* ************************************ */
+Util.buildRegistrationPage = async function(){
+  let registration = '<div id="registration-block1">'
+    registration += '<div id="registration-block2">'
+      registration += '<form> \
+      <label for="fname">First name:</label><br> \
+      <input type="text" id="fname" name="fname"><br> \
+      <label for="lname">Last name:</label><br> \
+      <input type="text" id="lname" name="lname"><br> \
+      <label for="email">Email Address:</label><br> \
+      <input type="text" id="email" name="email"><br> \
+      <label for="passwd">Password:</label><br> \
+      <input type="text" id="passwd" name="passwd"> \
+      </form>'
+      registration += '<div id=pw-verbiage>'
+        registration += '<p> Passwords must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character</p>'
+      registration += '</div>'
+      registration += '<button>Register</button>'
+    registration += '</div>'
+    registration += '</div>'
+  return registration
+}
+/* **************************************
+* Build the registration view HTML
+* ************************************ */
+
+
 
 /* ****************************************
  * Middleware For Handling Errors
