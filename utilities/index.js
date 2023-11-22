@@ -83,60 +83,6 @@ Util.buildDetailPage = async function(data){
 
 }
 
-/* **************************************
-* Build the login view HTML
-* ************************************ */
-Util.buildLoginPage = async function(){
-  let login = '<div id="login-block1">'
-    login += '<div id="login-block2">'
-      login += '<form> \
-      <label for="email">Email Address:</label><br> \
-      <input type="text" id="email" name="account_email"><br> \
-      <label for="password">Password:</label><br> \
-      <input type="password" class="pword" name="account_password"> \
-      <span class="pswdBtn">Show Password</span> \
-      </form>'
-      login += '<div id=pw-verbiage>'
-        login += '<p> Passwords must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character</p>'
-      login += '</div>'
-      login += '<button>Login</button>'
-    login += '</div>'
-    login += '<p>No account? <a href="/account/registration">Sign-up!</p>'
-    login += '</div>'
-  return login
-}
-
-
-/* **************************************
-* Build the Registration view HTML
-* ************************************ */
-Util.buildRegistrationPage = async function(){
-  let registration = '<div id="registration-block1">'
-    registration += '<div id="registration-block2">'
-      registration += '<form> \
-      <label for="fname">First name:</label><br> \
-      <input type="text" id="fname" name="account_firstname"><br> \
-      <label for="lname">Last name:</label><br> \
-      <input type="text" id="lname" name="account_lastname"><br> \
-      <label for="email">Email Address:</label><br> \
-      <input type="text" id="email" name="account_email"><br> \
-      <label for="passwd">Password:</label><br> \
-      <input type="password" id="passwd" name="account_password"> \
-      </form>'
-      registration += '<button id="password-hider">Show Password</button>'
-      registration += '<div id=pw-verbiage>'
-        registration += '<p> Passwords must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character</p>'
-        registration += '</div>'
-      registration += '<button>Register</button>'
-    registration += '</div>'
-    registration += '</div>'
-  return registration
-}
-/* **************************************
-* Build the registration view HTML
-* ************************************ */
-
-
 
 /* ****************************************
  * Middleware For Handling Errors
