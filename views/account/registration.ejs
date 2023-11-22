@@ -11,4 +11,22 @@
 <%# messages() %>
 
 <!-- The Registration Form -->
-<%- registration -%>
+<div id="registration-block1">
+  <div id="registration-block2">
+    <form action="/account/register" method="post" id=registrationForm>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="account_firstname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="account_lastname"><br>
+    <label for="email">Email Address:</label><br>
+    <input type="text" id="email" name="account_email"><br>
+    <label for="passwd">Password:</label><br>
+    <input type="password" id="passwd" name="account_password">
+    </form>
+    <button id="password-hider">Show Password</button>
+    <div id=pw-verbiage>
+      <p> Passwords must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character</p>
+      </div>
+    <button type="submit" form="registrationForm" value="Submit">Register</button>
+  </div>
+  </div>
