@@ -83,6 +83,26 @@ Util.buildDetailPage = async function(data){
 
 }
 
+Util.buildLoginPage = async function(){
+  let login = '<div id="login-block1">'
+    login += '<div id="login-block2">'
+      login += '<form> \
+      <label for="email">Email Address:</label><br> \
+      <input type="text" id="email" name="email"><br> \
+      <label for="passwd">Password:</label><br> \
+      <input type="text" id="passwd" name="passwd"> \
+      </form>'
+      login += '<div id=pw-verbiage>'
+        login += '<p> Passwords must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character</p>'
+      login += '</div>'
+      login += '<button>Show Password</button>'
+      login += '<button>Login</button>'
+    login += '</div>'
+    login += '<p>No account? <a href="/account/signup">Sign-up!</p>'
+    login += '</div>'
+  return login
+}
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other functions in this for 
