@@ -9,20 +9,27 @@
 
 <!-- A Message Block to display potential error messages -->
 <%# messages() %>
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
 
 <!-- The Login Form -->
 <div id="login-block1">
   <div id="login-block2">
-    <form>
-    <label for="email">Email Address:</label>
-    <input type="email" id="email" name="account_email" required>
-    <label for="account_password">Password:</label>
-    <input type="password" id="account_password" class="pword" name="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+    <form id="loginForm" action="/account/login" method="post">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="account_email" required value="<%= locals.account_email %>">
+      <label for="account_password">Password:</label>
+      <input type="password" id="account_password" class="pword" name="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+      <div id=pw-verbiage>
+        <p> Passwords must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character</p>
+      </div>
+      <button type="submit">Login</button>
     </form>
-    <div id=pw-verbiage>
-      <p> Passwords must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character</p>
-    </div>
-    <button>Login</button>
   </div>
   <p>No account? <a href="/account/registration">Sign-up!</a></p>
   </div>
