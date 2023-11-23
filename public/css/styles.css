@@ -261,9 +261,6 @@ article {
   font-weight: bold;
 }
 
-#pw-verbiage {
-  font-size: 0.5em;
-}
 
 form * {
   display: block;
@@ -286,9 +283,28 @@ input:required:invalid, input:focus:invalid {
 /* Login view styling */
 /* ******************** */
 #login-block1 {
-  background: var(--myblue);
+  background: lightblue;
   border-radius: 5px;
   padding: 5px;
+  color: black;
+}
+
+/* #login-block1 a {
+  color: ;
+} */
+
+#login-block1 a {
+  color: white;
+}
+
+#login-block1 a:visited {
+  color: white;
+}
+
+#login-block1 {
+  background-color: var(--myblue);
+  color: black;
+  font-size: min(8vw, 30px);
 }
 
 #login-block2 {
@@ -297,6 +313,7 @@ input:required:invalid, input:focus:invalid {
   border-color: white;
   border-radius: 5px;
   padding: 3px;
+
 }
 
 
@@ -308,6 +325,7 @@ input:required:invalid, input:focus:invalid {
   font-size: small;
   width: 7em;
   text-align: center;
+  color: white;
 }
 
 /* ******************** */
@@ -317,6 +335,7 @@ input:required:invalid, input:focus:invalid {
   background: var(--myblue);
   border-radius: 5px;
   padding: 5px;
+  font-size: min(8vw, 30px);
 }
 
 #registration-block2 {
@@ -345,10 +364,6 @@ ul.notice {
   font-size: 0.5em;
   color: red;
   text-align: center;
-}
-
-#registration-block1 {
-  font-size: min(8vw, 30px);
 }
 
 /* ***************************************************** */
