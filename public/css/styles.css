@@ -261,6 +261,27 @@ article {
   font-weight: bold;
 }
 
+#pw-verbiage {
+  font-size: 0.5em;
+}
+
+form * {
+  display: block;
+}
+
+
+/* ******************** */
+/* input validation  */
+/* ******************** */
+
+input:required:invalid, input:focus:invalid {
+  background-color: salmon;
+ }
+
+ input:required:valid {
+  background-color: lightgreen;
+ }
+
 /* ******************** */
 /* Login view styling */
 /* ******************** */
@@ -277,9 +298,6 @@ article {
   border-radius: 5px;
 }
 
-form * {
-  display: block;
-}
 
 .pswdBtn {
   border: 2px solid #000;
@@ -291,10 +309,21 @@ form * {
   text-align: center;
 }
 
-#pw-verbiage {
-  font-size: 0.5em;
+/* ******************** */
+/* Registration view styling */
+/* ******************** */
+#registration-block1 {
+  background: var(--myblue);
+  border-radius: 5px;
+  padding: 5px;
 }
 
+#registration-block2 {
+  margin: 8px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
+}
 
 
 /* ******************** */
