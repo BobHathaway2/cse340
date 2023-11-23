@@ -296,6 +296,7 @@ input:required:invalid, input:focus:invalid {
   border-style: solid;
   border-color: white;
   border-radius: 5px;
+  padding: 3px;
 }
 
 
@@ -323,18 +324,33 @@ input:required:invalid, input:focus:invalid {
   border-style: solid;
   border-color: white;
   border-radius: 5px;
+  padding: 3px;
+}
+
+form input {
+  width: min(12em, 400px);
+  font-size: min(0.8em, 40px);
 }
 
 
 /* ******************** */
 /* Error message styling */
 /* ******************** */
+ul.notice {
+  font-size: 0.5em;
+  color: red;
+}
 
 .errorMsg {
   font-size: 0.5em;
   color: red;
   text-align: center;
 }
+
+#registration-block1 {
+  font-size: min(8vw, 30px);
+}
+
 /* ***************************************************** */
 /* Media transition at 400px to display on wider screens */
 /* ***************************************************** */
