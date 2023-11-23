@@ -14,10 +14,10 @@
 <div id="login-block1">
   <div id="login-block2">
     <form>
-    <label for="email">Email Address:</label><br>
-    <input type="text" id="email" name="account_email"><br>
-    <label for="password">Password:</label><br>
-    <input type="password" class="pword" name="account_password">
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="account_email" required>
+    <label for="password">Password:</label>
+    <input type="password" class="pword" name="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
     <span class="pswdBtn">Show Password</span>
     </form>
     <div id=pw-verbiage>
@@ -27,3 +27,4 @@
   </div>
   <p>No account? <a href="/account/registration">Sign-up!</p>
   </div>
+  

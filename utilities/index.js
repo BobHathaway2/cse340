@@ -91,7 +91,7 @@ Util.buildDetailPage = async function(data){
  **************************************** */
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
-Util.passwordHider = async function (document){
+Util.passwordHider = async function (){
   const pswdBtn = document.querySelector(".pswdBtn");
   pswdBtn.addEventListener("click", function() {
   const pswdInput = document.querySelector(".pword");
