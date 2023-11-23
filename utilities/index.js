@@ -101,7 +101,7 @@ Util.passwordHider = async function (){
     pswdBtn.innerHTML = "Hide Password";
   } else {
     pswdInput.setAttribute("type", "password");
-    pswdBtn.innerHTML = "Show Password";
+    // pswdBtn.innerHTML = "Show Password";
   }
 });
 
