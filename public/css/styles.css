@@ -338,6 +338,11 @@ input:required:invalid, input:focus:invalid {
   font-size: min(8vw, 30px);
 }
 
+#registration-block1 p {
+  font-style: italic;
+}
+
+
 #registration-block2 {
   margin: 8px;
   border-style: solid;
