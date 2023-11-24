@@ -12,6 +12,10 @@ async function registerAccount(account_firstname, account_lastname, account_emai
     }
   }
 
+/* *****************************
+*   Test for login credentials
+* *************************** */
+  
   async function loginAccount(account_email, account_password) {
     try {
       const sql = "SELECT account_email FROM account WHERE account_email = $1 && account_password = $2)"
