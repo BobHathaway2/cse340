@@ -1,3 +1,4 @@
+const { localsName } = require("ejs")
 const invModel = require("../models/inventory-model")
 const Util = {}
 
@@ -83,37 +84,6 @@ Util.buildDetailPage = async function(data){
 
 }
 
-/* **************************************
-* Build the management view HTML
-* ************************************ */
-Util.buildManagementPageHTML = async function(){
-  let mlinks = '<div id="management">'
-  mlinks += '<div id="addClass"><a href="/inv/addClass">Add New Classification</a></div>'
-  mlinks += '<div id="addVehicle"><a href="/inv/addVehicle">Add New Vehicle</a></div>'
-  mlinks += '</div>'
-  return mlinks
-}
-
-
-/* **************************************
-* Build the Add Classification view HTML
-* ************************************ */
-Util.buildAddClassificationPage = async function(){
-  let cForm = '<div id="AddClass-block1">'
-        cForm += '<div class="italics">FIELD IS REQUIRED</div>'
-        cForm += '<div id="AddClass-block2">'
-          cForm += '<form id="addClassForm" action="/inv/addNewClass" method="post">'
-            cForm += '<label for="newClass">Classification Name:</label>'
-            cForm += '<input type="text" id="newClass" name="classification_name" required required pattern="^[A-Za-z]{1,8}$"</input>'
-            cForm += '<div id=class-verbiage>'
-              cForm += '<p class="italics">NAME MUST BE 1-8 ALPHABETIC CHARACTERS</p>'
-            cForm += '</div>'
-            cForm += '<button form="addClassForm" type="submit" value="Submit">Add Classification</button>'
-          cForm += '</form>'
-        cForm += '</div>'
-      cForm += '</div>'
-  return cForm
-}
 
 
 /* ****************************************

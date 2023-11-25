@@ -18,5 +18,17 @@
 <% } %>
 
 <!-- The Add Classification Display -->
-<%- cform %>
+<div id="AddClass-block1">
+  <div class="italics">FIELD IS REQUIRED</div>
+  <div id="AddClass-block2">
+    <form id="addClassForm" action="/inv/addNewClass" method="post">
+      <label for="newClass">Classification Name:</label>
+      <input type="text" id="newClass" name="classification_name" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+      <div id=class-verbiage>
+        <p class="italics">NAME MUST BE 1-8 ALPHABETIC CHARACTERS</p>
+      </div>
+      <button form="addClassForm" type="submit" value="Submit">Add Classification</button>
+    </form>
+  </div>
+</div>
 

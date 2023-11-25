@@ -48,11 +48,9 @@ invCont.buildByInvId = async function (req, res, next) {
  * ************************** */
 invCont.buildManagement = async function (req, res, next) {
   let nav = await utilities.getNav()
-  let mlinks = await utilities.buildManagementPageHTML()
   res.render("./inventory/management", {
   title: "Vehicle Management",
   nav,
-  mlinks,
   errors: null,
 })
 }
@@ -62,11 +60,9 @@ invCont.buildManagement = async function (req, res, next) {
  * ******************************** */
 invCont.buildAddClass = async function (req, res, next) {
   let nav = await utilities.getNav()
-  const cform = await utilities.buildAddClassificationPage()
   res.render("./inventory/add-classification", {
     title: "Add New Classification",
     nav,
-    cform,
     errors: null,
   })
 }
@@ -91,10 +87,7 @@ invCont.buildAddVehicle = async function (req, res, next) {
 * *************************************** */
 invCont.addClassification = async function (req, res) {
   let nav = await utilities.getNav()
-  let cform = await utilities.buildAddClassificationPage()
-
   const {classification_name} = req.body
-
   const addClassificationResult = await invModel.addClassification(classification_name)
   
   if (addClassificationResult.name != 'error') {
@@ -105,7 +98,6 @@ invCont.addClassification = async function (req, res) {
     res.status(201).render("./inventory/add-Classification", {
       title: "Add New Classification",
       nav,
-      cform,
       errors: null,
     })
   } else {
@@ -113,7 +105,6 @@ invCont.addClassification = async function (req, res) {
     res.status(501).render("./inventory/add-Classification", {
       title: "Add New Classification",
       nav,
-      cform,
     })
   }
 }
