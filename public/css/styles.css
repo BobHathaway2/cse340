@@ -338,8 +338,9 @@ input:required:invalid, input:focus:invalid {
   font-size: min(8vw, 30px);
 }
 
-#registration-block1 p {
+.italics {
   font-style: italic;
+  font-size: min(0.5em, 25px);
 }
 
 
