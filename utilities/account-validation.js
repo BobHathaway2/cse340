@@ -49,7 +49,7 @@ validate.registationRules = () => {
 
 
   /* ******************************
- * Check data and return errors or continue to registration
+ * Check registration data and return errors or continue to registration
  * ***************************** */
   validate.checkRegData = async (req, res, next) => {
     const { account_firstname, account_lastname, account_email } = req.body
@@ -100,7 +100,7 @@ validate.registationRules = () => {
 
 
   /* ******************************
- * Check data and return errors or continue to login
+ * Check login data and return errors or continue to login
  * ***************************** */
   validate.checkLoginData = async (req, res, next) => {
     const {account_email } = req.body
@@ -118,5 +118,6 @@ validate.registationRules = () => {
     }
     next()
   }
-  
+
+
   module.exports = validate

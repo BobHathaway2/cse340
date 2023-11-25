@@ -43,4 +43,79 @@ invCont.buildByInvId = async function (req, res, next) {
   }
 }
 
+/* ***************************
+ *  Build Management view
+ * ************************** */
+invCont.buildManagement = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  let mlinks = await utilities.buildManagementPageHTML()
+  res.render("./inventory/management", {
+  title: "Vehicle Management",
+  nav,
+  mlinks,
+  errors: null,
+})
+}
+
+/* **********************************
+ *  Build Add New Classification view
+ * ******************************** */
+invCont.buildAddClass = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const cform = await utilities.buildAddClassificationPage()
+  res.render("./inventory/add-classification", {
+    title: "Add New Classification",
+    nav,
+    cform,
+    errors: null,
+  })
+}
+
+/* ***************************
+ *  Build Add New Vehicle view
+ * ************************** */
+invCont.buildAddVehicle = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  let vform = "I'm here"
+  res.render("./inventory/add-vehicle", {
+    title: "Add New Vehicle",
+    nav,
+    vform,
+    errors: null,
+  })
+}
+
+
+/* ****************************************
+*  Process New Classification
+* *************************************** */
+invCont.addClassification = async function (req, res) {
+  let nav = await utilities.getNav()
+  let cform = await utilities.buildAddClassificationPage()
+
+  const {classification_name} = req.body
+
+  const addClassificationResult = await invModel.addClassification(classification_name)
+  
+  if (addClassificationResult.name != 'error') {
+    req.flash(
+      "notice",
+      `Congratulations, you\'ve added the classification: ${addClassificationResult}`
+    )
+    res.status(201).render("./inventory/add-Classification", {
+      title: "Add New Classification",
+      nav,
+      cform,
+      errors: null,
+    })
+  } else {
+    req.flash("notice", `Sorry, the classification was not added.`)
+    res.status(501).render("./inventory/add-Classification", {
+      title: "Add New Classification",
+      nav,
+      cform,
+    })
+  }
+}
+
 module.exports = invCont

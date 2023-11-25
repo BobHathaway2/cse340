@@ -9,14 +9,7 @@
 
 <!-- A Message Block to display potential error messages -->
 <%# messages() %>
-<% if (errors) { %>
-  <ul class="notice">
- <% errors.array().forEach(error => { %>
-   <li><%= error.msg %></li>
-<%  }) %>
- </ul>
-<% } %>
 
-<!-- The Inventory Items Display -->
-<%- details %>
+<!-- The Management links to Display -->
+<%- mlinks %>
 

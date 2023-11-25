@@ -262,8 +262,9 @@ article {
 }
 
 
-form * {
+form {
   display: block;
+  font-size: min(0.5m, 40px);
 }
 
 
@@ -304,7 +305,7 @@ input:required:invalid, input:focus:invalid {
 #login-block1 {
   background-color: var(--myblue);
   color: black;
-  font-size: min(8vw, 30px);
+  font-size: min(0.8em, 30px);
 }
 
 #login-block2 {
@@ -322,7 +323,7 @@ input:required:invalid, input:focus:invalid {
   border-radius: 5px;
   padding: 2px;
   margin-top: 1em;
-  font-size: small;
+  font-size: min(0.8em, 30px);
   width: 7em;
   text-align: center;
   color: white;
@@ -335,10 +336,10 @@ input:required:invalid, input:focus:invalid {
   background: var(--myblue);
   border-radius: 5px;
   padding: 5px;
-  font-size: min(8vw, 30px);
+  font-size: min(0.8em, 40px);
 }
 
-#registration-block1 p {
+.italics {
   font-style: italic;
 }
 
@@ -355,7 +356,6 @@ form input {
   width: min(12em, 400px);
   font-size: min(0.8em, 40px);
 }
-
 
 /* ******************** */
 /* Error message styling */
