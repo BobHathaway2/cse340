@@ -73,9 +73,11 @@ invCont.buildAddClass = async function (req, res, next) {
  * ******************************** */
 invCont.buildAddInventory = async function (req, res, next) {
   let nav = await utilities.getNav()
+  let invSelect = await utilities.getSelect()
   res.render("./inventory/add-inventory", {
     title: "Add New Vehicle",
     nav,
+    invSelect,
     errors: null,
   })
 }

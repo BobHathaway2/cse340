@@ -21,27 +21,27 @@
 <div id="addInventory-block1" class="outerbox">
   <div class="italics">ALL FIELDS ARE REQUIRED</div>
   <div id="addInventory-block2" class="innerbox">
-    <form id="addInventoryForm" action="/inv/addNewVehicle" method="post">
+    <form id="addInventoryForm" action="/inv/addInventory" method="post">
         <label for="invClass">Classification</label>
-        <input type="text" id="invClass" name="classification_id" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
-        <label for="make">Make</label>
-        <input type="text" id="make" name="inv_make" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
-        <label for="model">Model</label>
-        <input type="text" id="model" name="inv_model" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
-        <label for="description">Description</label>
-        <textarea rows="5" id="description" name="inv_description" required></textarea>
-        <label for="image">Image Path</label>
-        <input type="text" id="image" name="inv_image" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
-        <label for="thumb">Thumbnail Path</label>
-        <input type="text" id="thumb" name="inv_thumbnail" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
-        <label for="price">Price</label>
-        <input type="text" id="price" name="inv_price" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
-        <label for="year">Year</label>
-        <input type="number" id="year" name="inv_year" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
-        <label for="miles">Miles</label>
-        <input type="number" id="miles" name="inv_miles" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
-        <label for="color">Color</label>
-        <input type="text" id="color" name="inv_color" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+        <%- invSelect %>
+        <label for="invMake">Make</label>
+        <input type="text" id="invMake" name="inv_make" required value="<%= locals.classification_name %>">
+        <label for="invModel">Model</label>
+        <input type="text" id="invModel" name="inv_model" required value="<%= locals.classification_name %>">
+        <label for="invDescription">Description</label>
+        <textarea rows="5" id="invDescription" name="inv_description" required value="<%= locals.classification_name %>"></textarea>
+        <label for="invImage">Image Path</label>
+        <input type="text" id="invImage" name="inv_image" required value="<%= locals.classification_name %>">
+        <label for="invThumb">Thumbnail Path</label>
+        <input type="text" id="invThumb" name="inv_thumbnail" required value="<%= locals.classification_name %>">
+        <label for="invPrice">Price</label>
+        <input type="number" id="invPrice" name="inv_price" required min=0 max="100000000" value="<%= locals.classification_name %>">
+        <label for="invYear">Year</label>
+        <input type="text" id="invYear" name="inv_year" required pattern="\d{4,4}"  value="<%= locals.classification_name %>">
+        <label for="invMiles">Miles</label>
+        <input type="number" id="invMiles" name="inv_miles" required min="0" max="100000000" value="<%= locals.classification_name %>">
+        <label for="invColor">Color</label>
+        <input type="text" id="invColor" name="inv_color" required value="<%= locals.classification_name %>">
       </div>
       <button form="addInventoryForm" type="submit" value="Submit">Add Vehicle</button>
     </form>
