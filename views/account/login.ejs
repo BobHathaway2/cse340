@@ -8,7 +8,7 @@
 
  
 <!-- A Message Block to display potential error messages -->
-<%# messages() %>
+<%- messages() %>
 <% if (errors) { %>
   <ul class="notice">
  <% errors.array().forEach(error => { %>
@@ -18,8 +18,8 @@
 <% } %>
 
 <!-- The Login Form -->
-<div id="login-block1">
-  <div id="login-block2">
+<div id="login-block1" class="outerbox">
+  <div id="login-block2" class="innerbox">
     <form id="loginForm" action="/account/login" method="post">
       <label for="email">Email Address:</label>
       <input type="email" id="email" name="account_email" required value="<%= locals.account_email %>">
