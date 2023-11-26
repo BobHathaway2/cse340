@@ -1,0 +1,50 @@
+<!-- The content Heading -->
+
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+
+<!-- A Message Block to display potential error messages -->
+<%- messages() %>
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<!-- The Add inventory Display -->
+<div id="addInventory-block1" class="outerbox">
+  <div class="italics">ALL FIELDS ARE REQUIRED</div>
+  <div id="addInventory-block2" class="innerbox">
+    <form id="addInventoryForm" action="/inv/addNewVehicle" method="post">
+        <label for="invClass">Classification</label>
+        <input type="text" id="invClass" name="classification_id" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+        <label for="make">Make</label>
+        <input type="text" id="make" name="inv_make" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+        <label for="model">Model</label>
+        <input type="text" id="model" name="inv_model" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+        <label for="description">Description</label>
+        <textarea rows="5" id="description" name="inv_description" required></textarea>
+        <label for="image">Image Path</label>
+        <input type="text" id="image" name="inv_image" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+        <label for="thumb">Thumbnail Path</label>
+        <input type="text" id="thumb" name="inv_thumbnail" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+        <label for="price">Price</label>
+        <input type="text" id="price" name="inv_price" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+        <label for="year">Year</label>
+        <input type="number" id="year" name="inv_year" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+        <label for="miles">Miles</label>
+        <input type="number" id="miles" name="inv_miles" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+        <label for="color">Color</label>
+        <input type="text" id="color" name="inv_color" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+      </div>
+      <button form="addInventoryForm" type="submit" value="Submit">Add Vehicle</button>
+    </form>
+  </div>
+</div>
+

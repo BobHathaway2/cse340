@@ -271,11 +271,11 @@ form * {
 /* input validation  */
 /* ******************** */
 
-input:required:invalid, input:focus:invalid {
+input:required:invalid, input:focus:invalid, textarea:required:invalid{
   background-color: salmon;
  }
 
- input:required:valid {
+ input:required:valid, textarea:required:valid{
   background-color: lightgreen;
  }
 

@@ -17,6 +17,9 @@ router.get("/", utilities.handleErrors(invController.buildManagement));
 // Route to build add classification view
 router.get("/addClass", utilities.handleErrors(invController.buildAddClass));
 
+// Route to build add inventory view
+router.get("/addInventory", utilities.handleErrors(invController.buildAddInventory));
+
 // Process new classification
 router.post(
     "/addNewClass",
