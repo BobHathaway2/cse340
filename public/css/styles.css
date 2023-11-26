@@ -327,29 +327,28 @@ input:required:invalid, input:focus:invalid {
   text-align: center;
   color: white;
 }
-
-/* ******************** */
-/* Registration view styling */
-/* ******************** */
-#registration-block1 {
+.outerbox {
   background: var(--myblue);
   border-radius: 5px;
   padding: 5px;
   font-size: min(8vw, 30px);
 }
 
-.italics {
-  font-style: italic;
-  font-size: min(0.5em, 25px);
-}
-
-
-#registration-block2 {
+.innerbox {
   margin: 8px;
   border-style: solid;
   border-color: white;
   border-radius: 5px;
   padding: 3px;
+}
+/* ******************** */
+/* Registration view styling */
+/* ******************** */
+
+
+.italics {
+  font-style: italic;
+  font-size: min(0.5em, 25px);
 }
 
 form input {

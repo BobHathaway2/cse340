@@ -1,0 +1,34 @@
+<!-- The content Heading -->
+
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+
+<!-- A Message Block to display potential error messages -->
+<%- messages() %>
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<!-- The Add inventory Display -->
+<div id="AddClass-block1" class="outerbox">
+  <div class="italics">FIELD IS REQUIRED</div>
+  <div id="AddClass-block2" class="innerbox">
+    <form id="addClassForm" action="/inv/addNewClass" method="post">
+      <label for="newClass">Classification Name:</label>
+      <input type="text" id="newClass" name="classification_name" required pattern="^[A-Za-z]{1,8}$" value="<%= locals.classification_name %>">
+      <div id=class-verbiage>
+        <p class="italics">NAME MUST BE 1-8 ALPHABETIC CHARACTERS</p>
+      </div>
+      <button form="addClassForm" type="submit" value="Submit">Add Classification</button>
+    </form>
+  </div>
+</div>
+

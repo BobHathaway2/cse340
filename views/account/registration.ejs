@@ -8,7 +8,7 @@
 
 
 <!-- A Message Block to display potential error messages -->
-<%# messages() %>
+<%- messages() %>
 <% if (errors) { %>
   <ul class="notice">
  <% errors.array().forEach(error => { %>
@@ -18,9 +18,9 @@
 <% } %>
 
 <!-- The Registration Form -->
-<div id="registration-block1">
+<div id="registration-block1"  class="outerbox">
   <p class="italics">ALL FIELDS ARE REQUIRED</p>
-  <div id="registration-block2">
+  <div id="registration-block2"  class="innerbox">
     <form action="/account/register" method="post" id=registrationForm>
     <label for="fname">First name:</label>
     <input type="text" name="account_firstname" id="fname" required value="<%= locals.account_firstname %>">

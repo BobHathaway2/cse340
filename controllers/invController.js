@@ -1,7 +1,7 @@
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
 
-const invCont = {}
+const invCont = {} 
   
 /* ***************************
  *  Build inventory by classification view
@@ -36,11 +36,65 @@ invCont.buildByInvId = async function (req, res, next) {
       title: detailName,
       nav,
       details,
+      errors: null,
     })
   } catch (error) {
     error.statusCode = 500
     throw error
   }
 }
+
+/* ***************************
+ *  Build management view
+ * ************************** */
+invCont.buildManagement = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/management", {
+  title: "Vehicle Management",
+  nav,
+  errors: null,
+})
+}
+
+/* **********************************
+ *  Build Add New Classification view
+ * ******************************** */
+invCont.buildAddClass = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/add-classification", {
+    title: "Add New Classification",
+    nav,
+    errors: null,
+  })
+}
+
+/* ****************************************
+*  Process New Classification
+* *************************************** */
+invCont.addClassification = async function (req, res) {
+  let nav = await utilities.getNav()
+  const {classification_name} = req.body
+  const addClassificationResult = await invModel.addClassification(classification_name)
+  
+  if (addClassificationResult.name != 'error') {
+    nav = await utilities.getNav()
+    req.flash(
+      "notice",
+      `Congratulations, you\'ve added a new classification and it's been included in the navigation bar`
+    )
+    res.status(201).render("./inventory/management", {
+      title: "Vehicle Management",
+      nav,
+      errors: null,
+    })
+  } else {
+    res.status(501).render("./inventory/add-Classification", {
+      title: "Add New Classification",
+      nav,
+      errors: null,
+    })
+  }
+}
+
 
 module.exports = invCont
