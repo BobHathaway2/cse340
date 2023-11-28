@@ -5,6 +5,9 @@ const accountController = require("../controllers/accountController")
 const utilities = require("../utilities")
 const validate = require('../utilities/account-validation')
 
+// Route to account management view
+router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountManagementView));
+
 // Route to build the login view
 router.get("/login", utilities.handleErrors(accountController.buildLoginView));
 
@@ -19,11 +22,11 @@ router.post(
     utilities.handleErrors(accountController.registerAccount)
   )
 
-// Process the login attempt
-  router.post(
-    "/login",
-    validate.loginRules(),
-    validate.checkLoginData,
-    utilities.handleErrors(accountController.loginAccount)
+// Process the login request
+router.post(
+  "/login",
+  validate.loginRules(),
+  validate.checkLoginData,
+  utilities.handleErrors(accountController.accountLogin)
 )
 module.exports = router;
