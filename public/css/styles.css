@@ -316,22 +316,23 @@ input:required:invalid, input:focus:invalid, textarea:required:invalid, select:r
 
 }
 
-
-.pswdBtn {
-  border: 2px solid #000;
+button {
+  font-size: 3vw;
+  border: 2px solid white;
   border-radius: 5px;
-  padding: 2px;
+  padding: 4px;
   margin-top: 1em;
-  font-size: small;
-  width: 7em;
   text-align: center;
   color: white;
+  background-color: var(--myblue);
+
 }
 .outerbox {
   background: var(--myblue);
   border-radius: 5px;
   padding: 5px;
-  font-size: min(8vw, 30px);
+  font-size: 8vw;
+  color: white;
 }
 
 .innerbox {
@@ -348,14 +349,13 @@ input:required:invalid, input:focus:invalid, textarea:required:invalid, select:r
 
 .italics {
   font-style: italic;
-  font-size: min(0.5em, 25px);
+  font-size: 1em;
 }
 
 form input, form textarea, form select {
-  width: min(12em, 400px);
-  font-size: min(0.8em, 40px);
+  width: 75vw;
+  font-size: 1em;
 }
-
 
 /* ******************** */
 /* Error message styling */
@@ -363,6 +363,7 @@ form input, form textarea, form select {
 ul.notice {
   font-size: 0.5em;
   color: red;
+  padding: 10px;
 }
 
 .errorMsg {
@@ -394,6 +395,11 @@ ul.notice {
     top: 8vw;
   }
 
+  ul.notice {
+    padding: 1em;
+    font-size: min(0.5em, 40px);
+  }
+
   #tools{
     top: 6vw;
     right: 7vw;
@@ -403,6 +409,7 @@ ul.notice {
   nav {
     font-size: min(1em, 45px);
   }
+
 
 }
 
@@ -438,6 +445,7 @@ ul.notice {
     font-size: 16px;
     margin: 0 15px;
   }
+
 
 /* ******************** */
 /* Details view styling */

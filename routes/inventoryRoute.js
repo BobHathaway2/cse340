@@ -22,10 +22,18 @@ router.get("/addInventory", utilities.handleErrors(invController.buildAddInvento
 
 // Process new classification
 router.post(
-    "/addNewClass",
-    validate.classificationRules(),
-    validate.checkClassificationData,
-    utilities.handleErrors(invController.addClassification)
-  )
+  "/addNewClass",
+  validate.classificationRules(),
+  validate.checkClassificationData,
+  utilities.handleErrors(invController.addClassification)
+)
+
+// Process new classification
+router.post(
+  "/addInventory",
+  validate.vehicleRules(),
+  validate.checkVehicleData,
+  utilities.handleErrors(invController.addInventory)
+)
 
 module.exports = router;

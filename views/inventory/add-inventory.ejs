@@ -25,15 +25,15 @@
         <label for="invClass">Classification</label>
         <%- invSelect %>
         <label for="invMake">Make</label>
-        <input type="text" id="invMake" name="inv_make" required value="<%= locals.classification_name %>">
+        <input type="text" id="invMake" name="inv_make" maxlength="30" required value="<%= locals.classification_name %>">
         <label for="invModel">Model</label>
-        <input type="text" id="invModel" name="inv_model" required value="<%= locals.classification_name %>">
+        <input type="text" id="invModel" name="inv_model" maxlength="30" required value="<%= locals.classification_name %>">
         <label for="invDescription">Description</label>
-        <textarea rows="5" id="invDescription" name="inv_description" required value="<%= locals.classification_name %>"></textarea>
+        <textarea rows="5" id="invDescription" name="inv_description" maxlength="255" required value="<%= locals.classification_name %>"></textarea>
         <label for="invImage">Image Path</label>
-        <input type="text" id="invImage" name="inv_image" required value="<%= locals.classification_name %>">
+        <input type="text" id="invImage" name="inv_image" maxlength="50"required value="<%= locals.classification_name %>">
         <label for="invThumb">Thumbnail Path</label>
-        <input type="text" id="invThumb" name="inv_thumbnail" required value="<%= locals.classification_name %>">
+        <input type="text" id="invThumb" name="inv_thumbnail" maxlength="50" required value="<%= locals.classification_name %>">
         <label for="invPrice">Price</label>
         <input type="number" id="invPrice" name="inv_price" required min=0 max="100000000" value="<%= locals.classification_name %>">
         <label for="invYear">Year</label>
@@ -41,7 +41,7 @@
         <label for="invMiles">Miles</label>
         <input type="number" id="invMiles" name="inv_miles" required min="0" max="100000000" value="<%= locals.classification_name %>">
         <label for="invColor">Color</label>
-        <input type="text" id="invColor" name="inv_color" required value="<%= locals.classification_name %>">
+        <input type="text" id="invColor" name="inv_color" maxlength="30" required value="<%= locals.classification_name %>">
       </div>
       <button form="addInventoryForm" type="submit" value="Submit">Add Vehicle</button>
     </form>
