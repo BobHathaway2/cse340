@@ -68,6 +68,20 @@ invCont.buildAddClass = async function (req, res, next) {
   })
 }
 
+/* **********************************
+ *  Build Add Inventory view
+ * ******************************** */
+invCont.buildAddInventory = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  let invSelect = await utilities.getSelect()
+  res.render("./inventory/add-inventory", {
+    title: "Add New Vehicle",
+    nav,
+    invSelect,
+    errors: null,
+  })
+}
+
 /* ****************************************
 *  Process New Classification
 * *************************************** */
@@ -95,6 +109,51 @@ invCont.addClassification = async function (req, res) {
     })
   }
 }
+
+/* ****************************************
+*  Process New Inventory
+* *************************************** */
+invCont.addInventory = async function (req, res) {
+  const {classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color} = req.body
+  const addClassificationResult = await invModel.addInventory(classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color)
+  let nav = await utilities.getNav()
+  let invSelect = await utilities.getSelect()
+  
+  const regResult = await invModel.addInventory(
+    classification_id, 
+    inv_make, 
+    inv_model, 
+    inv_description, 
+    inv_image, 
+    inv_thumbnail, 
+    inv_price, 
+    inv_year, 
+    inv_miles, 
+    inv_color
+  )
+
+  if (regResult) {
+    req.flash(
+      "notice",
+      `Congratulations, you\'ve added a new vehicle to the inventory!`
+    )
+    res.render("./inventory/add-inventory", {
+      title: "Add New Vehicle",
+      nav,
+      invSelect,
+      errors: null,
+    })
+    } else {
+    req.flash("notice", "Sorry, there was an error adding that vehicle.")
+    res.render("./inventory/add-inventory", {
+      title: "Add New Vehicle",
+      nav,
+      invSelect,
+      errors: null,
+    })
+    }
+}
+
 
 
 module.exports = invCont
