@@ -1,1 +1,1 @@
-select * from account;
+select inv_thumbnail from inventory;

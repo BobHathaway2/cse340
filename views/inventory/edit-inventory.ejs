@@ -17,13 +17,13 @@
  </ul>
 <% } %>
 
-<!-- The Add inventory Display -->
-<div id="addInventory-block1" class="outerbox">
+<!-- The edit inventory Display -->
+<div id="editInventory-block1" class="outerbox">
   <div class="italics">ALL FIELDS ARE REQUIRED</div>
-  <div id="addInventory-block2" class="innerbox">
-    <form id="addInventoryForm" action="/inv/addInventory" method="post">
+  <div id="editInventory-block2" class="innerbox">
+    <form id="editInventoryForm" action="/inv/update" method="post">
         <label for="invClass">Classification</label>
-        <%- invSelect %>
+        <%- classificationSelect %>
         <label for="invMake">Make</label>
         <input type="text" id="invMake" name="inv_make" maxlength="30" required value="<%= locals.inv_make %>">
         <label for="invModel">Model</label>
@@ -42,7 +42,10 @@
         <input type="number" id="invMiles" name="inv_miles" required min="0" max="100000000" value="<%= locals.inv_miles %>">
         <label for="invColor">Color</label>
         <input type="text" id="invColor" name="inv_color" maxlength="30" required value="<%= locals.inv_color %>">
-        <button form="addInventoryForm" type="submit" value="Submit">Add Vehicle</button>
+        <button form="editInventoryForm" type="submit" value="Submit">Update Vehicle</button>
+        <input type="hidden" name="inv_id"
+        <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+        <% } %>>
     </form>
   </div>
 </div>
