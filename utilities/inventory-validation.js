@@ -120,7 +120,7 @@ validate.classificationRules = () => {
       errors = validationResult(req)
       if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
-        let invSelect = await utilities.i();
+        let invSelect = await utilities.buildClassificationList();
 
         res.render("inventory/edit-inventory", {
           errors,
