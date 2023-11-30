@@ -21,28 +21,16 @@
 <div id="deleteInventory-block1" class="outerbox">
   <div class="italics">Confirm Deletion - The delete is permanent.</div>
   <div id="deleteInventory-block2" class="innerbox">
-    <form id="deleteInventoryForm" action="/inv/delete" method="post">
-        <label for="invClass">Classification</label>
-        <%- classificationSelect %>
+    <form id="deleteInventoryForm" action="/inv/delete/" method="post">
         <label for="invMake">Make</label>
         <input type="text" id="invMake" name="inv_make" maxlength="30" readonly required  value="<%= locals.inv_make %>">
         <label for="invModel">Model</label>
         <input type="text" id="invModel" name="inv_model" maxlength="30" readonly required  value="<%= locals.inv_model %>">
-        <label for="invDescription">Description</label>
-        <textarea rows="5" id="invDescription" name="inv_description" maxlength="255" readonly required ><%= locals.inv_description %></textarea>
-        <label for="invImage">Image Path</label>
-        <input type="text" id="invImage" name="inv_image" maxlength="50" readonly required  value="<%= locals.inv_image %>">
-        <label for="invThumb">Thumbnail Path</label>
-        <input type="text" id="invThumb" name="inv_thumbnail" maxlength="50" readonly required  value="<%= locals.inv_thumbnail %>">
         <label for="invPrice">Price</label>
         <input type="number" id="invPrice" name="inv_price" readonly required  min=0 max="100000000" value="<%= locals.inv_price %>">
         <label for="invYear">Year</label>
         <input type="text" id="invYear" name="inv_year" readonly required  pattern="\d{4,4}"  value="<%= locals.inv_year %>">
-        <label for="invMiles">Miles</label>
-        <input type="number" id="invMiles" name="inv_miles" readonly required  min="0" max="100000000" value="<%= locals.inv_miles %>">
-        <label for="invColor">Color</label>
-        <input type="text" id="invColor" name="inv_color" maxlength="30" readonly required  value="<%= locals.inv_color %>">
-        <button form="deleteInventoryForm" type="submit" value="Submit">Delete Vehicle</button>
+        <button form="deleteInventoryForm" type="submit" value="Submit">Delete</button>
         <input type="hidden" name="inv_id"
         <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
         <% } %>>
