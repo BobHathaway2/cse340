@@ -3,7 +3,7 @@
 }
 
 body {
-  font-size: 8vw;
+  font-size: 6vw;
 }
 
 header {
@@ -31,7 +31,7 @@ nav {
 }
 
 nav ul {
-  font-size: max(0.5em, 14px);
+  font-size: 4.5vw;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -60,7 +60,7 @@ h1 {
 }
 
 h2 {
-  font-size: 0.5em;
+  font-size: 8vw;
 }
 
 footer {
@@ -191,6 +191,7 @@ footer {
   justify-content: center;
   text-align: center;
   font-size: 0.5em;
+  padding: 0;
 }
 
 #inv-display li {
@@ -279,19 +280,25 @@ input:required:invalid, input:focus:invalid, textarea:required:invalid, select:r
   background-color: lightgreen;
  }
 
+ form input, form textarea, form select {
+  width: 75vw;
+  font-size: 0.8em;
+}
+
+
 /* ******************** */
 /* Login view styling */
 /* ******************** */
-#login-block1 {
+/* #login-block1 {
   background: lightblue;
   border-radius: 5px;
   padding: 5px;
   color: black;
 }
 
-/* #login-block1 a {
+#login-block1 a {
   color: ;
-} */
+}
 
 #login-block1 a {
   color: white;
@@ -314,10 +321,13 @@ input:required:invalid, input:focus:invalid, textarea:required:invalid, select:r
   border-radius: 5px;
   padding: 3px;
 
+} */
+#pw-verbiage p {
+  font-size: 5vw;
+  margin-top: 1vw;
 }
-
 button {
-  font-size: 3vw;
+  font-size: 8vw;
   border: 2px solid white;
   border-radius: 5px;
   padding: 4px;
@@ -342,9 +352,6 @@ button {
   border-radius: 5px;
   padding: 3px;
 }
-/* ******************** */
-/* Registration view styling */
-/* ******************** */
 
 
 .italics {
@@ -352,22 +359,45 @@ button {
   font-size: 1em;
 }
 
-form input, form textarea, form select {
-  width: 75vw;
-  font-size: 0.8em;
+/* ******************** */
+/* Management view styling */
+/* ******************** */
+#management p {
+  margin: 1vw;
+  font-size: 5vw;
+}
+#management select {
+  font-size: 5vw;
+}
+#management h2 {
+  margin-bottom: 1vw;
 }
 
+#management table {
+  margin: 1vw;
+  font-size: 5vw;
+}
+
+#management th {
+  border-style: solid;
+  border-width: 0, 0, 2px, 0;
+  text-align: left;
+}
+
+#management a {
+  margin: 2vw;
+}
 /* ******************** */
 /* Error message styling */
 /* ******************** */
 ul.notice {
-  font-size: 0.5em;
+  font-size: 8vw;
   color: red;
   padding: 10px;
 }
 
 .errorMsg {
-  font-size: 0.5em;
+  font-size: 8vw;
   color: red;
   text-align: center;
 }
@@ -397,7 +427,6 @@ ul.notice {
 
   ul.notice {
     padding: 1em;
-    font-size: min(0.5em, 40px);
   }
 
   #tools{

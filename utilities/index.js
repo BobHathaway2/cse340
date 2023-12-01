@@ -31,7 +31,7 @@ Util.getNav = async function (req, res, next) {
  ********************************************* */
 Util.buildClassificationList = async function (req, res, next) {
   let data = await invModel.getClassifications() 
-  let invSelect = '<select id="invClass" name="classification_id" required>'
+  let invSelect = '<select name="classification_id" id="invClass" required>'
   if (req === undefined) {
     invSelect += '<option hidden disabled selected value> -- select a classification</option>'
   }
