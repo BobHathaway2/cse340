@@ -49,6 +49,8 @@ nav li a:link {
   color: white;
 }
 
+
+
 nav li a:visited {
   color: var(--myblue);
 }
@@ -281,7 +283,7 @@ input:required:invalid, input:focus:invalid, textarea:required:invalid, select:r
  }
 
  form input, form textarea, form select {
-  width: 75vw;
+  width: 80vw;
   font-size: 0.8em;
 }
 
@@ -345,6 +347,10 @@ button {
   color: white;
 }
 
+.outerbox a:visited {
+  color: white;
+}
+
 .innerbox {
   margin: 8px;
   border-style: solid;
@@ -380,7 +386,6 @@ button {
 
 #management th {
   border-style: solid;
-  border-width: 0, 0, 2px, 0;
   text-align: left;
 }
 
