@@ -12,27 +12,28 @@ router.get("/type/:classificationId", utilities.handleErrors(invController.build
 router.get("/detail/:invId", utilities.handleErrors(invController.buildByInvId));
 
 // Route to build management view
-router.get("/", utilities.handleErrors(invController.buildManagement));
+router.get("/", utilities.checkManagement, utilities.handleErrors(invController.buildManagement));
 
 // Route to build add classification view
-router.get("/addClass", utilities.handleErrors(invController.buildAddClass));
+router.get("/addClass", utilities.checkManagement, utilities.handleErrors(invController.buildAddClass));
 
 // Route to build add inventory view
-router.get("/addInventory", utilities.handleErrors(invController.buildAddInventory));
+router.get("/addInventory", utilities.checkManagement, utilities.handleErrors(invController.buildAddInventory));
 
 // Route to get inventory in JSON format
-router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+router.get("/getInventory/:classification_id", utilities.checkManagement, utilities.handleErrors(invController.getInventoryJSON))
 
 // Route to edit inventory
-router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
+router.get("/edit/:inv_id", utilities.checkManagement, utilities.handleErrors(invController.editInventoryView))
 
 // Route to delete inventory
-router.get("/delete/:inv_id", utilities.handleErrors(invController.deleteInventoryView))
+router.get("/delete/:inv_id", utilities.checkManagement, utilities.handleErrors(invController.deleteInventoryView))
 
 
 // Process new classification
 router.post(
   "/addNewClass",
+  utilities.checkManagement,
   validate.classificationRules(),
   validate.checkClassificationData,
   utilities.handleErrors(invController.addClassification)
@@ -41,6 +42,7 @@ router.post(
 // Process new classification
 router.post(
   "/addInventory",
+  utilities.checkManagement,
   validate.vehicleRules(),
   validate.checkVehicleData,
   utilities.handleErrors(invController.addInventory)
@@ -49,6 +51,7 @@ router.post(
 // Route to update inventory
 router.post(
   "/update/",
+  utilities.checkManagement,
   validate.vehicleRules(),
   validate.checkUpdateData,
   utilities.handleErrors(invController.updateInventory))
@@ -56,6 +59,7 @@ router.post(
 // Route to delete inventory
 router.post(
   "/delete/",
+  utilities.checkManagement,
   utilities.handleErrors(invController.deleteInventory))
 
 
