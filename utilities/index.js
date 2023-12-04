@@ -139,7 +139,7 @@ Util.checkJWTToken = (req, res, next) => {
     process.env.ACCESS_TOKEN_SECRET,
     function (err, accountData) {
      if (err) {
-      req.flash("Please log in")
+      req.flash(`Please log in`)
       res.clearCookie("jwt")
       return res.redirect("/account/login")
      }
@@ -153,13 +153,29 @@ Util.checkJWTToken = (req, res, next) => {
  }
 
 /* ****************************************
+* Middleware to check employee or admin for management view/process access
+**************************************** */
+Util.checkManagement = (req, res, next) => {
+  if (res.locals.loggedin && (res.locals.accountData.account_type == "Employee" || res.locals.accountData.account_type == "Admin")) {
+    next()
+  } else {
+    if (!res.locals.loggedin) {
+      req.flash("notice", `Please log in.`)
+      return res.redirect("/account/login")
+    } else {                                                // unauthorized user, so don't admit the pages are there, just redirect them back to home
+      return res.redirect("/")
+    }
+  } 
+}
+
+/* ****************************************
  *  Check Login
  * ************************************ */
 Util.checkLogin = (req, res, next) => {
   if (res.locals.loggedin) {
     next()
   } else {
-    req.flash("notice", "Please log in.")
+    req.flash("notice", `Please log in.`)
     return res.redirect("/account/login")
   }
  }
