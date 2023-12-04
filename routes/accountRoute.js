@@ -16,11 +16,14 @@ router.get("/logout", utilities.handleErrors(accountController.accountLogout));
 
 // Route to build the registration view
 router.get("/registration", utilities.handleErrors(accountController.buildRegistrationView));
+
+// Route to build the account update view
+router.get("/update/:account_id", utilities.handleErrors(accountController.buildUpdateView))
  
 // Process the registration data
 router.post(
     "/register",
-    validate.registationRules(),
+    validate.registrationRules(),
     validate.checkRegData,
     utilities.handleErrors(accountController.registerAccount)
   )
@@ -31,5 +34,21 @@ router.post(
   validate.loginRules(),
   validate.checkLoginData,
   utilities.handleErrors(accountController.accountLogin)
+)
+
+// Process the update data
+router.post(
+  "/update",
+  validate.updateRules(),
+  validate.checkUpdateData,
+  utilities.handleErrors(accountController.accountUpdate)
+)
+
+// Process the password data
+router.post(
+  "/password",
+  validate.passwordRules(),
+  validate.checkPasswordData,
+  utilities.handleErrors(accountController.accountPassword)  
 )
 module.exports = router;

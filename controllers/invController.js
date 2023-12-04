@@ -144,7 +144,7 @@ invCont.addInventory = async function (req, res) {
     req.flash("notice", `Congratulations, you\'ve added ${inv_year} ${inv_make} ${inv_model} to the inventory!`)
     res.redirect("/inv/")
     } else {
-    req.flash("notice", "Sorry, there was an error adding that vehicle.")
+    req.flash("notice", `Sorry, there was an error adding that vehicle.`)
     res.render("./inventory/add-inventory", {
       title: "Add New Vehicle",
       nav,
@@ -234,7 +234,7 @@ invCont.updateInventory = async function (req, res, next) {
   } else {
     const classificationSelect = await utilities.buildClassificationList(classification_id)
     const itemName = `${inv_make} ${inv_model}`
-    req.flash("notice", "Sorry, the insert failed.")
+    req.flash("notice", `Sorry, the insert failed.`)
     res.status(501).render("inventory/edit-inventory", {
     title: "Edit " + itemName,
     nav,
@@ -323,7 +323,7 @@ invCont.deleteInventory = async function (req, res, next) {
     })
   } else {
     const itemName = `${inv_make} ${inv_model}`
-    req.flash("notice", "Sorry, the delete failed.")
+    req.flash("notice", `Sorry, the delete failed.`)
     res.status(501).render("inventory/delete-confirm", {
     title: "Delete " + itemName,
     nav,
