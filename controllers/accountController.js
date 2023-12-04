@@ -169,12 +169,13 @@ async function accountUpdate(req, res) {
   )
 
   if (updateResult) {
-    req.flash(
-      "notice",
-      `Your account information has been updated.`
-    )
+    req.flash("info", `Your account information has been updated:`)
+    req.flash("info", `  First Name: ${account_firstname}`)
+    req.flash("info", `  Last Name: ${account_lastname}`)
+    req.flash("info", `  email: ${account_email}`)
+
     res.status(201).render("account/management", {
-      title: "Login",
+      title: "Account Management",
       nav,
       errors: null,
     })
