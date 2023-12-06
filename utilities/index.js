@@ -180,5 +180,19 @@ Util.checkLogin = (req, res, next) => {
   }
  }
 
+/* *******************************************
+ * Constructs the salesrep dropdown list
+ ********************************************* */
+Util.buildsalesrepList = async function (req, res, next) {
+  let data = await accountModel.getSalesreps() 
+  let salesrepSelect = '<select name="classification_id" id="invClass" required>'
+  salesrepSelect += '<option hidden disabled selected value> -- select a Sales Rep</option>'
+  for (let i = 0; i < data.rowCount; i++) {
+    salesrepSelect += '<option value=' + data.rows[i].account_id + '>' + data.rows[i].account_firstname + ' ' + data.rows[i].account_lastname + '</option>'
+  }
+  salesrepSelect += "</select>"
+  return salesrepSelect
+}
+
 
 module.exports = Util

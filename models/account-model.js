@@ -106,4 +106,19 @@ async function updatePassword(account_id, account_password){
  }
 }
 
+/* *****************************
+* Return account sale representitives
+* ***************************** */
+async function getSalesreps () {
+  try {
+    const result = await pool.query(
+      'SELECT account_id, account_firstname FROM account WHERE account_type = "sales"',
+      [account_id])
+    return result
+  } catch (error) {
+    return new Error("No matching id found")
+  }
+}
+
+
 module.exports = {registerAccount, checkExistingEmail, loginAccount, getAccountByEmail, getAccountById, checkExistingEmailExcept, updateAccount, updatePassword}
