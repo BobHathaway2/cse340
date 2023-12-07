@@ -2,6 +2,7 @@ const invModel = require("../models/inventory-model")
 const accountModel = require("../models/account-model")
 const Util = {}
 const jwt = require("jsonwebtoken")
+const { reset } = require("nodemon")
 require("dotenv").config()
 
 /* ************************
@@ -89,17 +90,19 @@ Util.buildDetailPage = async function(data){
   let details;
   if(data.length > 0){
     details = '<section id=details>'
-    details += '<div id="image-div"><img src="' + data[0].inv_image 
-      +'" alt="Image of '+ data[0].inv_make + ' ' + data[0].inv_model 
-      +' on CSE Motors" /></div>'
-    details += '<h2>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model + '</h2>'
-    details += '<article><h3>Description:</h3>' + data[0].inv_description + '</article>'
-    details += '<div id="specs">'
-    details += '<div id="color">Color: ' + data[0].inv_color + '</div>'
-    details += '<div id="mileage">Mileage: ' + Number(data[0].inv_miles).toLocaleString('en') + '</div>'
-    details += '<div id="price">Price: $' + Number(data[0].inv_price).toLocaleString('en') + '</div>'
-    details += '</div>'
-    details += '</section>'
+      details += '<div id="image-div"><img src="' + data[0].inv_image 
+          +'" alt="Image of '+ data[0].inv_make + ' ' + data[0].inv_model 
+          +' on CSE Motors" /></div>'
+        details += '<h2>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model + '</h2>'
+        details += '<article><h3>Description:</h3>' + data[0].inv_description + '</article>'
+        details += '<div id="specs">'
+        details += '<div id="color">Color: ' + data[0].inv_color + '</div>'
+        details += '<div id="mileage">Mileage : ' + Number(data[0].inv_miles).toLocaleString('en') + '</div>'
+        details += '<a href="../../sales/' + data[0].inv_id + '">'
+          details += '<div id="price">Price: $' + Number(data[0].inv_price).toLocaleString('en') + '</div>'
+        details += "</a>"
+      details += '</div>'
+      details += '</section>'
   } else { 
     details = '<p class="errorMsg">Sorry, we must have sold that one. I can\'t find it anywere! Is there another you\'re interested in?</p>'
   }
@@ -187,7 +190,7 @@ Util.checkLogin = (req, res, next) => {
  ********************************************* */
 Util.buildsalesrepList = async function (req, res, next) {
   let data = await accountModel.getSalesreps() 
-  let salesrepSelect = '<select name="classification_id" id="invClass" required>'
+  let salesrepSelect = '<select name="salesrep_id" id="salesrep" required>'
   salesrepSelect += '<option hidden disabled selected value> -- select a Sales Rep</option>'
   for (let i = 0; i < data.rowCount; i++) {
     salesrepSelect += '<option value=' + data.rows[i].account_id + '>' + data.rows[i].account_firstname + ' ' + data.rows[i].account_lastname + '</option>'

@@ -362,7 +362,23 @@ button {
   font-size: 6vw;
 }
 
+#sale-block2 form input {
+  height: 4vw;
+  width: 4vw;
+  display: inline;
+}
 
+#sale-block2 form label {
+  display: inline;
+}
+
+#sale-block2 form button {
+  display: inline;
+}
+
+#sale-block2 .italics {
+  margin-top: 0;
+}
 
 /* ******************** */
 /* Error message styling */

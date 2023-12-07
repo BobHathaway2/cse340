@@ -1,3 +1,4 @@
+const { localsName } = require("ejs")
 const invModel = require("../models/inventory-model")
 // const salesModel = require("../models/sales-model")
 const utilities = require("../utilities/")
@@ -14,11 +15,22 @@ salesCont.buildSaleView = async function (req, res, next) {
           const salesreps = await utilities.buildsalesrepList()
           let nav = await utilities.getNav()
           const detailName = data[0].inv_make + ' ' + data[0].inv_model
-          res.render("./sales/sale", {
-            title: detailName,
+          if (res.locals.accountData) {
+            account_id = res.locals.accountData.account_id
+            res.render("./sales/sale", {
+              title: detailName,
+              nav,
+              details,
+              salesreps,
+              inv_id,
+              account_id,
+              errors: null,
+            })
+          } else
+            req.flash("notice", `Please log in before attempting to purchase a vehicle.`)
+            res.render("./account/login", {
+            title: "login",
             nav,
-            details,
-            salesreps,
             errors: null,
           })
       }

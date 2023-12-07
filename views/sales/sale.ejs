@@ -17,28 +17,28 @@
  </ul>
 <% } %>
 
-<!-- The Add Classification Display -->
+<!-- The buy the vehicle -->
 <%- details %>
 <div id="sale-block1" class="outerbox">
     <div id="sale-block2" class="innerbox">
-        <form>
+      <form action="/sales/sale" method="post" id=saleForm>
             <p>Which of our sales representatives would you like to work with?</p>
             <%- salesreps %>
+            <hr>
             <p>How would you like to complete this sale?</p>
-            <input type="radio" id="online" name="sale_process" value="HTML">
-            <label for="html">Online - have the selected sales representative contact me</label><br>
-            <input type="radio" id="inhouse" name="sale_process" value="CSS">
-            <label for="css">In your showroom - I will come into the showroom</label>
-            <input type="hidden" name="inv_id">        
-                <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
-                <% } %>
-            <input type="hidden" name="account_id">
-                <% if(locals.account_id) { %> value="<%= locals.account_id %>"
-                <% } %>
-            <input type="hidden" name="salesrep_id">
-                <% if(locals.salesrep_id) { %> value="<%= locals.account_id %>"
-                <% } %>
-            
+            <input type="radio" id="online" name="sale_preference" value="online">
+            <label for="online">Online - Please have the selected sales representative contact me</label><br>
+            <input type="radio" id="inhouse" name="sale_preference" value="showroom" required>
+            <label for="inhouse">In your showroom - I will come into the showroom</label>
+            <input type="hidden" name="inv_id" value="<%= locals.inv_id %>">
+            <input type="hidden" name="account_id" value="<%= locals.account_id %>">
+            <p class="italics">(select an option)</p>
+            <hr>
+            <label for="phone">Please enter your phone number so we can contact you to complete the sale or schedule an appointment for you to come in</label><br>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+            <hr>
+            <button id="buy" type="submit">Buy It!</button>
+            <button id="cancel" onclick="location.href='/'" type="button">Return to Site</button>
     </form>
     </div>
   </div>
