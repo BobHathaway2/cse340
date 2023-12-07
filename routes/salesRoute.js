@@ -5,7 +5,7 @@ const salesController = require("../controllers/salesController")
 const utilities = require("../utilities/")
 
 // Route to build sale view
-router.get("/sales/", utilities.handleErrors(salesController.buildSale));
+router.get("/:invId", utilities.handleErrors(salesController.buildSaleView));
 
 
 module.exports = router;

@@ -1,7 +1,7 @@
 <!-- The content Heading -->
 
 <% if (title) { %>
-    <h1><%= title %></h1>
+    <h1>Purchasing: <%= title %></h1>
     <% } else {
       res.redirect('/')
     } %>
@@ -18,27 +18,26 @@
 <% } %>
 
 <!-- The Add Classification Display -->
-<!-- <%- vehicle %> -->
+<%- details %>
 <div id="sale-block1" class="outerbox">
-    <div class="italics">How would you like to complete the sales process?</div>
     <div id="sale-block2" class="innerbox">
-        <form action="/action_page.php">
+        <form>
             <p>Which of our sales representatives would you like to work with?</p>
-            <!-- <%- salesreps %> -->
+            <%- salesreps %>
             <p>How would you like to complete this sale?</p>
             <input type="radio" id="online" name="sale_process" value="HTML">
-            <label for="html">Online - have the selected sales representative contact me</label>&nbsp;&nbsp;
+            <label for="html">Online - have the selected sales representative contact me</label><br>
             <input type="radio" id="inhouse" name="sale_process" value="CSS">
             <label for="css">In your showroom - I will come into the showroom</label>
             <input type="hidden" name="inv_id">        
                 <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
-                <% } %>>
+                <% } %>
             <input type="hidden" name="account_id">
                 <% if(locals.account_id) { %> value="<%= locals.account_id %>"
-                <% } %>>
+                <% } %>
             <input type="hidden" name="salesrep_id">
                 <% if(locals.salesrep_id) { %> value="<%= locals.account_id %>"
-                <% } %>>
+                <% } %>
             
     </form>
     </div>

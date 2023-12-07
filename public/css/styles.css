@@ -287,43 +287,6 @@ input:required:invalid, input:focus:invalid, textarea:required:invalid, select:r
   font-size: 0.8em;
 }
 
-
-/* ******************** */
-/* Login view styling */
-/* ******************** */
-/* #login-block1 {
-  background: lightblue;
-  border-radius: 5px;
-  padding: 5px;
-  color: black;
-}
-
-#login-block1 a {
-  color: ;
-}
-
-#login-block1 a {
-  color: white;
-}
-
-#login-block1 a:visited {
-  color: white;
-}
-
-#login-block1 {
-  background-color: var(--myblue);
-  color: black;
-  font-size: min(8vw, 30px);
-}
-
-#login-block2 {
-  margin: 8px;
-  border-style: solid;
-  border-color: white;
-  border-radius: 5px;
-  padding: 3px;
-
-} */
 #pw-verbiage p {
   font-size: 5vw;
   margin-top: 1vw;
@@ -359,7 +322,6 @@ button {
   padding: 3px;
 }
 
-
 .italics {
   font-style: italic;
   font-size: 0.8em;
@@ -392,6 +354,16 @@ button {
 #management a {
   margin: 2vw;
 }
+
+/* ******************** */
+/* Sale view styling */
+/* ******************** */
+#sale-block2 form {
+  font-size: 6vw;
+}
+
+
+
 /* ******************** */
 /* Error message styling */
 /* ******************** */
