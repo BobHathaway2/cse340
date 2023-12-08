@@ -1,6 +1,6 @@
 const { localsName } = require("ejs")
 const invModel = require("../models/inventory-model")
-// const salesModel = require("../models/sales-model")
+const salesModel = require("../models/sales-model")
 const utilities = require("../utilities/")
 
 const salesCont = {} 
@@ -34,5 +34,34 @@ salesCont.buildSaleView = async function (req, res, next) {
             errors: null,
           })
       }
+/* ***************************
+ *  Set sale pending with post data from customer
+ * ************************** */
+async function setSalePending(req, res) {
+  let nav = await utilities.getNav()
+  const { salesrep_id, sale_preference, inv_id, account_id, phone } = req.body
+  const salePendingSuccess = await salesModel.setSalePending(
+    salesrep_id, 
+    sale_preference, 
+    inv_id, account_id, 
+    phone
+  )
+
+  if (salePendingSuccess) {
+    req.flash(
+      "notice",
+      `Congratulations, this sale is now pending!`,
+      "notice",
+      `Your sales representative will contact you soon!`
+    )
+    res.status(201).redirect("/")
+  } else {
+    req.flash("notice", `Something went wrong. Please call me directly, Bob Johns, Sales Manager, at 555-555-1212`)
+    res.status(501).redirect("/")
+  }
+}
+
 
       module.exports = salesCont
+      
+
