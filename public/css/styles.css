@@ -205,6 +205,10 @@ footer {
   margin: 0.5em;
 }
 
+#inv-display li a {
+  margin: 5px;
+}
+
 #inv-display hr {
   margin-top: 0;
   margin-bottom: 3px;
