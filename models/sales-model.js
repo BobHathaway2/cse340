@@ -64,3 +64,5 @@ async function setSalePending(salesrep_id, sale_preference, inv_id, account_id, 
     return error.message
   }
 }
+
+module.exports = {setSalePending, vehicleForSale, currentSalesRep, getSalesPeople}

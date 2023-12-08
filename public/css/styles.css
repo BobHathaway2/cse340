@@ -380,6 +380,12 @@ button {
   margin-top: 0;
 }
 
+#sale-block2 form #phone {
+  width: 40vw;
+  height: 6vw;
+
+}
+
 /* ******************** */
 /* Error message styling */
 /* ******************** */
@@ -387,6 +393,7 @@ ul.notice {
   font-size: 8vw;
   color: red;
   padding: 10px;
+  margin: 10px;
 }
 
 .errorMsg {

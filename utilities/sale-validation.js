@@ -14,12 +14,7 @@ validate.salesRules = () => {
     body("account_id")
         .trim()
         .isInt()
-        .withMessage("Not a valid format for account_id")
-        .custom(async (account_id) => {
-            if (localsName.accountData.account_id === undefined || localsName.accountData.account_id != account_id) {
-                throw new Error("You are not logged in")
-            }
-          }),
+        .withMessage("Not a valid format for account_id"),
     body("salesrep_id")
       .trim()
       .isInt()
@@ -72,20 +67,24 @@ validate.salesRules = () => {
     let errors = []
     errors = validationResult(req)
     if (!errors.isEmpty()) {
-        const inv_id = req.params.invId
+        const inv_id = req.body.inv_id
         const data = await invModel.getInventoryByInvId(inv_id)
         const details = await utilities.buildDetailPage(data)
         const salesreps = await utilities.buildsalesrepList()
         let nav = await utilities.getNav()
         const detailName = data[0].inv_make + ' ' + data[0].inv_model
-      res.render("./sales/sale", {
-        title: detailName,
-        nav,
-        details,
-        salesreps,
-        inv_id,
-        account_id,
-        errors: null,
+        account_id = req.body.account_id
+        phone = req.body.phone
+        res.render("./sales/sale", {
+          title: detailName,
+          nav,
+          details,
+          salesreps,
+          inv_id,
+          account_id,
+          phone,
+          errors: errors,
+          
       })
       return
     }
