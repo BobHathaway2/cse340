@@ -43,7 +43,7 @@ async function vehicleForSale(inv_id) {
   try {
     const data = await pool.query(
       `SELECT sale_status FROM public.sales_processing
-      WHERE account_id =  $1`,
+      WHERE inv_id =  $1`,
       [inv_id]
     )
     if (data.rowCount > 0){
@@ -69,10 +69,10 @@ async function currentSalePreference(sale_preference) {
   }
 }
 
-async function setSalePending(salesrep_id, sale_preference, inv_id, account_id, phone) {
+async function setSalePending(salesrep_id, sale_preference, inv_id, account_id, phone, sale_status) {
   try {
-    const sql = "INSERT INTO sales_processings (salesrep_id, sale_preference, inv_id, account_id, phone) VALUES ($1, $2, $3, $4, $5) RETURNING *"
-    let queryResult = await pool.query(sql, [salesrep_id, sale_preference, inv_id, account_id, phone])
+    const sql = "INSERT INTO sales_processing (salesrep_id, sale_preference, inv_id, account_id, phone, sale_status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *"
+    let queryResult = await pool.query(sql, [salesrep_id, sale_preference, inv_id, account_id, phone, sale_status])
     return queryResult
   } catch (error) {
     return error.message

@@ -38,19 +38,21 @@ salesCont.buildSaleView = async function (req, res, next) {
  *  Set sale pending with post data from customer
  * ************************** */
 salesCont.setSalePending = async function(req, res) {
-  let nav = await utilities.getNav()
   const { salesrep_id, sale_preference, inv_id, account_id, phone } = req.body
   const salePendingResponse = await salesModel.setSalePending(
     salesrep_id, 
     sale_preference, 
     inv_id, account_id, 
-    phone
+    phone,
+    "pending"
   )
-
-  if (salePendingResponse != undefined && salePendingResponse.rowCount == 1) {
+ 
+  if (salePendingResponse != undefined && salePendingResponse != undefined && salePendingResponse.rowCount == 1) {
+    const data = await invModel.getInventoryByInvId(inv_id)
+    const vehicle = data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model
     req.flash(
       "notice",
-      `Congratulations, your sale is now pending!`,
+      `Congratulations ${res.locals.accountData.account_firstname}! The ${vehicle} is almost yours!`,
       `A sales representative will contact you soon!`
     )
     res.status(201).redirect("/")
