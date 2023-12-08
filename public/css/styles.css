@@ -205,6 +205,10 @@ footer {
   margin: 0.5em;
 }
 
+#inv-display li a {
+  margin: 5px;
+}
+
 #inv-display hr {
   margin-top: 0;
   margin-bottom: 3px;
@@ -287,43 +291,6 @@ input:required:invalid, input:focus:invalid, textarea:required:invalid, select:r
   font-size: 0.8em;
 }
 
-
-/* ******************** */
-/* Login view styling */
-/* ******************** */
-/* #login-block1 {
-  background: lightblue;
-  border-radius: 5px;
-  padding: 5px;
-  color: black;
-}
-
-#login-block1 a {
-  color: ;
-}
-
-#login-block1 a {
-  color: white;
-}
-
-#login-block1 a:visited {
-  color: white;
-}
-
-#login-block1 {
-  background-color: var(--myblue);
-  color: black;
-  font-size: min(8vw, 30px);
-}
-
-#login-block2 {
-  margin: 8px;
-  border-style: solid;
-  border-color: white;
-  border-radius: 5px;
-  padding: 3px;
-
-} */
 #pw-verbiage p {
   font-size: 5vw;
   margin-top: 1vw;
@@ -359,7 +326,6 @@ button {
   padding: 3px;
 }
 
-
 .italics {
   font-style: italic;
   font-size: 0.8em;
@@ -392,6 +358,38 @@ button {
 #management a {
   margin: 2vw;
 }
+
+/* ******************** */
+/* Sale view styling */
+/* ******************** */
+#sale-block2 form {
+  font-size: 6vw;
+}
+
+#sale-block2 form input {
+  height: 4vw;
+  width: 4vw;
+  display: inline;
+}
+
+#sale-block2 form label {
+  display: inline;
+}
+
+#sale-block2 form button {
+  display: inline;
+}
+
+#sale-block2 .italics {
+  margin-top: 0;
+}
+
+#sale-block2 form #phone {
+  width: 40vw;
+  height: 6vw;
+
+}
+
 /* ******************** */
 /* Error message styling */
 /* ******************** */
@@ -399,6 +397,7 @@ ul.notice {
   font-size: 8vw;
   color: red;
   padding: 10px;
+  margin: 10px;
 }
 
 .errorMsg {

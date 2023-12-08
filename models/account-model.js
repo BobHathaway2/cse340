@@ -106,4 +106,16 @@ async function updatePassword(account_id, account_password){
  }
 }
 
-module.exports = {registerAccount, checkExistingEmail, loginAccount, getAccountByEmail, getAccountById, checkExistingEmailExcept, updateAccount, updatePassword}
+/* *****************************
+* Return account sale representitives
+* ***************************** */
+async function getSalesreps () {
+  try {
+    return await pool.query("SELECT account_id, account_firstname, account_lastname FROM account WHERE account_type = 'sales'")
+  } catch (error) {
+    return new Error("Sales reps not found in database")
+  }
+}
+
+
+module.exports = {registerAccount, checkExistingEmail, loginAccount, getAccountByEmail, getAccountById, checkExistingEmailExcept, updateAccount, updatePassword, getSalesreps}
