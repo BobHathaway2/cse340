@@ -32,7 +32,7 @@ validate.salesRules = () => {
       .custom(async (sale_preference) => {
         const salesPreferenceExists = await salesModel.currentSalePreference(sale_preference)
         if (!salesPreferenceExists){
-          throw new Error("Not a valid Sales Rep Id")
+          throw new Error("Not a valid sales preference")
         }
       }),
       body("inv_id")
@@ -41,11 +41,11 @@ validate.salesRules = () => {
       .withMessage("Inventory Id must be integer.")
       .custom(async (inv_id) => {
         const vehicleExists = await invModel.getInventoryByInvId(inv_id)
-        if (vehicleExists.rows.count == 0){
+        if (vehicleExists.length != 1){
           throw new Error("Vehicle Not in Inventory")
         }
-        const vehicleInSaleProcess = await salesModel.vehicleForSale(inv_id)
-        if (vehicleInSaleProcess) {
+        const vehicleForSale = await salesModel.vehicleForSale(inv_id)
+        if (!vehicleForSale) {
             throw new Error("Vehicle is either sold, or a sale is in process")
         }
       }),

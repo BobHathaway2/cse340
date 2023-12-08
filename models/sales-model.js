@@ -26,7 +26,7 @@ async function currentSalesRep(salesrep_id) {
       WHERE account_id =  $1 AND a.account_type = 'sales'`,
       [salesrep_id]
     )
-    if (data.rows.count > 0){
+    if (data.rowCount > 0){
       return true
     } else {
       return false
@@ -46,7 +46,7 @@ async function vehicleForSale(inv_id) {
       WHERE account_id =  $1`,
       [inv_id]
     )
-    if (data.rows.count > 0){
+    if (data.rowCount > 0){
       return false
     } else {
       return true
@@ -56,13 +56,27 @@ async function vehicleForSale(inv_id) {
   }
 }
 
+async function currentSalePreference(sale_preference) {
+  try {
+    const statuses = await pool.query(`select * FROM unnest(enum_range(NULL::sale_completion)) as t(name) WHERE t.name::text = 'online'`)
+    if (statuses.rowCount > 0) {
+      return true
+    } else {
+      return false
+    }
+  } catch (error) {
+    console.error("Current sale preference error" + error)
+  }
+}
+
 async function setSalePending(salesrep_id, sale_preference, inv_id, account_id, phone) {
   try {
-    const sql = "INSERT INTO sale_status (salesrep_id, sale_preference, inv_id, account_id, phone) VALUES ($1, $2, $3, $4, $5) RETURNING *"
-    return await pool.query(sql, [salesrep_id, sale_preference, inv_id, account_id, phone])
+    const sql = "INSERT INTO sales_processings (salesrep_id, sale_preference, inv_id, account_id, phone) VALUES ($1, $2, $3, $4, $5) RETURNING *"
+    let queryResult = await pool.query(sql, [salesrep_id, sale_preference, inv_id, account_id, phone])
+    return queryResult
   } catch (error) {
     return error.message
   }
 }
 
-module.exports = {setSalePending, vehicleForSale, currentSalesRep, getSalesPeople}
+module.exports = {setSalePending, vehicleForSale, currentSalesRep, getSalesPeople, currentSalePreference}
