@@ -387,9 +387,20 @@ button {
 #sale-block2 form #phone {
   width: 40vw;
   height: 6vw;
-
 }
 
+#sale-block2 form button{
+  justify-content: center;
+}
+#saleButton {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#saleButton button {
+  margin: 0;
+}
 /* ******************** */
 /* Error message styling */
 /* ******************** */

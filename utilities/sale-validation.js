@@ -46,7 +46,7 @@ validate.salesRules = () => {
         }
         const vehicleForSale = await salesModel.vehicleForSale(inv_id)
         if (!vehicleForSale) {
-            throw new Error("I'm sorry. That vehicle has either recently been sold, or a sale is in process")
+            throw new Error("I'm sorry. That vehicle has either recently been sold, or a sale is pending")
         }
       }),
       body("phone")
