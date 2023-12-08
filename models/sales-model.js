@@ -1,3 +1,5 @@
+const pool = require("../database")
+
 /* ***************************
  *  Get all sales people
  * ************************** */
@@ -14,4 +16,51 @@ async function getSalesPeople(){
     }
 }
 
+/* ***************************
+ *  Current Sales Representative?
+ * ************************** */
+async function currentSalesRep(salesrep_id) {
+  try {
+    const data = await pool.query(
+      `SELECT * FROM public.account AS a
+      WHERE account_id =  $1 AND a.account_type = 'sales'`,
+      [salesrep_id]
+    )
+    if (data.rows.count > 0){
+      return true
+    } else {
+      return false
+    }
+  } catch (error) {
+    console.error("currentSalesRep error " + error)
+  }
+}
 
+/* ***************************
+ *  Vehicle in Sales Process?
+ * ************************** */
+async function vehicleForSale(inv_id) {
+  try {
+    const data = await pool.query(
+      `SELECT sale_status FROM public.sales_processing
+      WHERE account_id =  $1`,
+      [inv_id]
+    )
+    if (data.rows.count > 0){
+      return false
+    } else {
+      return true
+    }
+  } catch (error) {
+    console.error("vehicleForSale Error" + error)
+  }
+}
+
+async function setSalePending(salesrep_id, sale_preference, inv_id, account_id, phone) {
+  try {
+    const sql = "INSERT INTO sale_status (salesrep_id, sale_preference, inv_id, account_id, phone) VALUES ($1, $2, $3, $4, $5) RETURNING *"
+    return await pool.query(sql, [salesrep_id, sale_preference, inv_id, account_id, phone])
+  } catch (error) {
+    return error.message
+  }
+}
