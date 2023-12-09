@@ -17,7 +17,7 @@ node_modules
 README.md
 
 # ignore lock yaml file
-pnpm-lock.yaml
+# pnpm-lock.yaml
 
 # ignore debug file
 launch.json
